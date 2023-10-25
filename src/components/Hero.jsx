@@ -1,9 +1,17 @@
 import { motion } from "framer-motion";
-
+import { useEffect, useState } from "react";
 import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
+import { ComputersCanvas, BlobCanvas} from "./canvas";
 
 const Hero = () => {
+
+  const [typingDone, setTypingDone] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setTypingDone(true), 4000); // 4s is the duration of your typing animation
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className={`relative w-full h-screen mx-auto`}>
       <div
@@ -15,18 +23,22 @@ const Hero = () => {
         </div>
 
         <div>
-          <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className='text-[#274060]'>Ayoub</span>
+          <h1 className={`${styles.heroHeadText} text-white ${typingDone ? 'blink-caret' : 'typing-effect'}`}>
+          Hi, I'm <span className='text-[#274060]'>Ayoub</span>
           </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
+          <p className={`${styles.heroSubText} mt-2 text-white-100 ${typingDone ? 'blink-caret' : 'typing-effect'}`}>
             FullStack Software Engineer <br className='sm:block hidden' />
             And Machine Learning Geek
           </p>
+
+          <a href="./assets/docs/Ayoub Achak Resume.pdf" download className="download-button">
+            Download My Resume
+          </a>
         </div>
       </div>
 
-      <ComputersCanvas />
-
+      {/* <ComputersCanvas /> */}
+      <BlobCanvas/>
       <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
         <a href='#about'>
           <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
