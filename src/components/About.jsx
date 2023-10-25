@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Tilt from "react-tilt";
 import { motion, useAnimation} from "framer-motion";
 
@@ -6,6 +6,8 @@ import { styles } from "../styles";
 import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
+import me from '../assets/docs/me.png';
+
 
 const ServiceCard = ({ index, title, icon, bacK_tech }) => {
   const controls = useAnimation();
@@ -60,6 +62,40 @@ const ServiceCard = ({ index, title, icon, bacK_tech }) => {
 
 }
 
+const Image = () => {
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const { clientX: mouseX, clientY: mouseY } = e;
+      const { left, top, width, height } = cardRef.current.getBoundingClientRect();
+      const centerX = left + width / 2;
+      const centerY = top + height / 2;
+
+      const deltaX = mouseX - centerX;
+      const deltaY = mouseY - centerY;
+
+      const angleX = (deltaY / height) * 10;  // 10 is the max angle
+      const angleY = -(deltaX / width) * 10;
+
+      cardRef.current.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  return (
+    <div ref={cardRef} className="flex-none ml-10 bg-[#274060] p-4 rounded-[16px] neon-shadow">
+      <img src={me} alt="Ayoub Achak" className="w-64 h-64 object-cover" />
+    </div>
+  );
+};
+
+
 const About = () => {
   const programming_langs = [
     "Python3",
@@ -81,18 +117,20 @@ const About = () => {
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview.</h2>
       </motion.div>
-
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
-      >
-        Sharing was the key for me to learn So much in the tech field. Helping People Helped
-        Me practice My knowledge.<br className='sm:block hidden' />
-        I'm a Software Engineering student with a specialized focus on Computer Science and 
-        Artificial Intelligence. <br className='sm:block hidden' />
-        My technical skills are diverse, covering multiple programming languages 
-        like {programming_langs.map((lang) => <span className="font-bold text-white">{lang} <span className="w-2 h-2 bg-blue-200 rounded-full inline-block"></span> </span>)}  as well as a range of web technologies and machine learning tools.
-      </motion.p>
+      <div className="flex flex-wrap items-start">
+          <motion.p
+            variants={fadeIn("", "", 0.1, 1)}
+            className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
+          >
+            Sharing was the key for me to learn So much in the tech field. Helping People Helped
+            Me practice My knowledge.<br className='sm:block hidden' />
+            I'm a Software Engineering student with a specialized focus on Computer Science and 
+            Artificial Intelligence. <br className='sm:block hidden' />
+            My technical skills are diverse, covering multiple programming languages 
+            like {programming_langs.map((lang) => <span className="font-bold text-white">{lang} <span className="w-2 h-2 bg-blue-200 rounded-full inline-block"></span> </span>)}  as well as a range of web technologies and machine learning tools.
+          </motion.p>
+          <Image/>
+      </div>
 
       <div className='mt-20 flex flex-wrap gap-10'>
         {services.map((service, index) => {

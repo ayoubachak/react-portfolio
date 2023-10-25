@@ -52,6 +52,9 @@ import abdellah from './testemonials/abdellah.jpeg';
 import ensam from './company/ensam.png';
 import enib from './company/enib.png';
 
+import blob_bg from './blob-bg.jpg';
+import blob from './blob-nobg.png';
+
 export {
   logo,
   backend,
@@ -97,5 +100,8 @@ export {
   ismail,
   abdellah,
   ensam,
-  enib
+  enib,
+  
+  blob_bg,
+  blob,
 };

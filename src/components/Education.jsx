@@ -13,7 +13,7 @@ import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
 
 const EducationCard = ({ school }) => {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleContent = () => {
     setIsExpanded(!isExpanded);
@@ -44,6 +44,7 @@ const EducationCard = ({ school }) => {
           onClick={toggleContent}
         >
           {school.title}
+          <span className={`arrow-icon ${isExpanded ? 'expanded' : ''}`}></span>
         </h3>
         <a
           href={school.company_url}
@@ -56,7 +57,7 @@ const EducationCard = ({ school }) => {
 
       <ul
         className={`mt-5 list-disc ml-5 space-y-2 transition-all duration-300 ease-in-out ${
-          isExpanded ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+          isExpanded ? 'max-h-[500px] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'
         }`}
       >
         {school.points.map((point, index) => (

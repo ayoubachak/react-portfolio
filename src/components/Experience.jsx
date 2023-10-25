@@ -44,6 +44,7 @@ const ExperienceCard = ({ experience }) => {
           onClick={toggleContent}
         >
           {experience.title}
+          <span className={`arrow-icon ${isExpanded ? 'expanded' : ''}`}></span>
         </h3>
         <a
           href={experience.company_url}
@@ -56,7 +57,7 @@ const ExperienceCard = ({ experience }) => {
 
       <ul
         className={`mt-5 list-disc ml-5 space-y-2 transition-all duration-300 ease-in-out ${
-          isExpanded ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+          isExpanded ? 'max-h-[1000px] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0'
         }`}
       >
         {experience.points.map((point, index) => (
