@@ -147,13 +147,13 @@ const ExtraConnect = () => {
   //   setText(getMarkdownText(projectList[currentProject]));
   // }, [currentProject]);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % imageList.length);
-    }, 5000); // Change every 2 seconds
-
-    return () => clearInterval(timer);
-  }, []);
+  // AUtoScroll 
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setCurrentProject((prev) => (prev + 1) % projectList.length);
+  //   }, 20000); // Change every 2 seconds
+  //   return () => clearInterval(timer);
+  // }, []);
 
   const handleNext = () => {
     setCurrentProject((prev) => (prev + 1) % projectList.length);
