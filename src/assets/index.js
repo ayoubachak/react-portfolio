@@ -55,6 +55,23 @@ import enib from './company/enib.png';
 import blob_bg from './blob-bg.jpg';
 import blob from './blob-nobg.png';
 
+import tla from './company/the-leet-ai.jpeg';
+import tla_1 from './company/the-leet-ai-1.jpeg';
+import tla_2 from './company/the-leet-ai-2.jpeg';
+import tla_3 from './company/the-leet-ai-3.jpeg';
+import tla_4 from './company/the-leet-ai-4.jpeg';
+import tla_5 from './company/the-leet-ai-5.jpeg';
+import tla_6 from './company/the-leet-ai-6.jpeg';
+import tla_7 from './company/the-leet-ai-7.jpeg';
+
+import github_icon from './company/github.png';
+import instagram_icon from './company/instagram.png';
+import linkedin_icon from './company/linkedin.png';
+import indeed_icon from './company/indeed.png';
+import gmail_icon from './company/gmail.png';
+
+import extraconnect from './company/extraconnect.jpeg'
+
 export {
   logo,
   backend,
@@ -104,4 +121,20 @@ export {
   
   blob_bg,
   blob,
+
+  tla,
+  tla_1,
+  tla_2,
+  tla_3,
+  tla_4,
+  tla_5,
+  tla_6,
+  tla_7,
+
+  github_icon,
+  instagram_icon,
+  linkedin_icon,
+  indeed_icon,
+  gmail_icon,
+  extraconnect,
 };

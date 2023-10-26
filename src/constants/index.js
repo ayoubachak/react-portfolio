@@ -45,6 +45,10 @@ export const navLinks = [
     title: "Education",
   },
   {
+    id: "the-leet-ai",
+    title: "The Leet AI",
+  },
+  {
     id: "projects",
     title: "Projects",
   },

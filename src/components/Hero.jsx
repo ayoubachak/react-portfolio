@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { styles } from "../styles";
 import { ComputersCanvas, BlobCanvas} from "./canvas";
+import {github_icon, linkedin_icon, gmail_icon } from '../assets';
+
 
 const Hero = () => {
 
@@ -30,10 +32,17 @@ const Hero = () => {
             FullStack Software Engineer <br className='sm:block hidden' />
             And Machine Learning Geek
           </p>
-
-          <a href="./assets/docs/Ayoub Achak Resume.pdf" download className="download-button">
-            Download My Resume
-          </a>
+          <div className="button-icon-wrapper">
+            <a href="./assets/docs/Ayoub Achak Resume.pdf" download className="download-button">
+              Download My Resume
+            </a>
+            <a href="https://www.github.com/ayoubachak" className="social-media-icon">
+              <img src={github_icon} alt="Ayoub Achak Github" />
+            </a>
+            <a href="https://www.linkedin.com/in/ayoubachak" className="social-media-icon">
+              <img src={linkedin_icon} alt="Ayoub Achak Linkdin" />
+            </a>
+          </div>
         </div>
       </div>
 
