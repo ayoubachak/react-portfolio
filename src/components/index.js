@@ -9,6 +9,7 @@ import Works from "./Works";
 import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 import TheLeetAI from "./TheLeetAI";
+import ExtraConnect from "./ExtraConnect";
 import CanvasLoader from "./Loader";
 
 
@@ -27,5 +28,6 @@ export {
   BallCanvas, 
   ComputersCanvas, 
   StarsCanvas,
-  TheLeetAI
+  TheLeetAI,
+  ExtraConnect
 };

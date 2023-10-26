@@ -71,6 +71,9 @@ import indeed_icon from './company/indeed.png';
 import gmail_icon from './company/gmail.png';
 
 import extraconnect from './company/extraconnect.jpeg'
+import extraconnect_proj from './company/extraconnect-proj.jpeg'
+import proxynet from './company/proxy-net.png'
+import proxynet_icon from './company/proxynet-icon.png'
 
 export {
   logo,
@@ -137,4 +140,7 @@ export {
   indeed_icon,
   gmail_icon,
   extraconnect,
+  extraconnect_proj,
+  proxynet,
+  proxynet_icon,
 };
