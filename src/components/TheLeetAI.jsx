@@ -130,38 +130,38 @@ const TheLeetAI = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} text-center`}>
-          My AI Persona
-        </p>
-        <h2 className={`flex items-center justify-center ${styles.sectionHeadText} text-center`}>
-          <span>The Leet AI</span>
-          <img src={tla} alt="icon" className="ml-2 w-16 h-16" />
-        </h2>
-      </motion.div>
-      <div className='mt-20 flex space-x-8'>
-      <motion.div className='flex-1'>
-        <div className=' bg-[#1D1836] p-8 rounded-[16px]'>
-          <ReactMarkdown components={components}>{text}</ReactMarkdown>
-        </div>
-      </motion.div>
-        <motion.div className='flex-1 flex items-center'>
-          <button onClick={handlePrev} className="z-10 mr-5">Previous</button>
-          <div className='image-container relative'>
-            <AnimatePresence exitBeforeEnter>
-              <motion.img
-                key={currentImage}
-                src={imageList[currentImage]}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.5 }}
-                className='image rounded-lg h-[300px] object-cover shadow-cyanGlow'  
-              />
-            </AnimatePresence>
-          </div>
-          <button onClick={handleNext} className="z-10 ml-5">Next</button>
-        </motion.div>
-      </div>
+  <p className={`${styles.sectionSubText} text-center`}>
+    My AI Persona
+  </p>
+  <h2 className={`flex items-center justify-center ${styles.sectionHeadText} text-center`}>
+    <span>The Leet AI</span>
+    <img src={tla} alt="icon" className="ml-2 w-16 h-16" />
+  </h2>
+</motion.div>
+<div className='mt-20 flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8'>
+  <motion.div className='flex-1'>
+    <div className='bg-[#1D1836] p-8 rounded-[16px]'>
+      <ReactMarkdown components={components}>{text}</ReactMarkdown>
+    </div>
+  </motion.div>
+  <motion.div className='flex-1 flex flex-col items-center'>
+    <button onClick={handlePrev} className="z-10 mb-5 md:mb-0 md:mr-5">Previous</button>
+    <div className='image-container relative'>
+      <AnimatePresence exitBeforeEnter>
+        <motion.img
+          key={currentImage}
+          src={imageList[currentImage]}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.5 }}
+          className='image rounded-lg h-[300px] object-cover shadow-cyanGlow'  
+        />
+      </AnimatePresence>
+    </div>
+    <button onClick={handleNext} className="z-10 mt-5 md:mt-0 md:ml-5">Next</button>
+  </motion.div>
+</div>
     </>
   );
 };

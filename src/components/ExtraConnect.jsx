@@ -168,45 +168,46 @@ const ExtraConnect = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} text-center`}>
-          Connectivity and Networking
-        </p>
-        <h2 className={`flex items-center justify-center ${styles.sectionHeadText} text-center`}>
-          <span>ExtraConnect</span>
-          <img src={extraconnect} alt="icon" className="ml-2 w-16 h-16" />
-        </h2>
-      </motion.div>
-      <div className='mt-20 flex space-x-8'>
-        <motion.div className='flex-1'>
-          <div className=' bg-[#1D1836] p-8 rounded-[16px]'>
-            <ReactMarkdown components={components}>{text}</ReactMarkdown>
+  <p className={`${styles.sectionSubText} text-center`}>
+    Connectivity and Networking
+  </p>
+  <h2 className={`flex items-center justify-center ${styles.sectionHeadText} text-center`}>
+    <span>ExtraConnect</span>
+    <img src={extraconnect} alt="icon" className="ml-2 w-16 h-16" />
+  </h2>
+</motion.div>
+<div className='mt-20 flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8'>
+  <motion.div className='flex-1'>
+    <div className='bg-[#1D1836] p-8 rounded-[16px]'>
+      <ReactMarkdown components={components}>{text}</ReactMarkdown>
+    </div>
+  </motion.div>
+  <motion.div className='flex-1 flex flex-col items-center'>
+    <button onClick={handlePrev} className="z-10 mb-5 md:mb-0 md:mr-5">Previous</button>
+    <div className='project-card-container relative shadow-cyanGlow rounded-lg min-w-[300px] min-h-[200px]'>
+      <AnimatePresence exitBeforeEnter>
+        <motion.div
+          key={currentProject}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.5 }}
+        >
+          <img src={projectList[currentProject].background} alt="Project Background" className='object-cover w-full h-full rounded-lg' />
+          <img src={projectList[currentProject].logo} alt="Project Logo" className='absolute top-0 right-0 m-2 rounded-full w-12 h-12 bg-[#274060] cyan-shadow' />
+          <a href={projectList[currentProject].link} target='_blank' className='absolute top-0 left-0 m-2 rounded-full w-12 h-12'>
+            <img src={projectList[currentProject].linkIcon} alt="Link Icon" className='w-full h-full' />
+          </a>
+          <div className='absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#000000bb] to-transparent p-4 rounded-b-lg'>
+            <p className='text-white'>{projectList[currentProject].description}</p>
           </div>
         </motion.div>
-        <motion.div className='flex-1 flex items-center'>
-        <button onClick={handlePrev} className="z-10 mr-5">Previous</button>
-          <div className='project-card-container relative shadow-cyanGlow rounded-lg min-w-[300px] min-h-[200px]'>
-            <AnimatePresence exitBeforeEnter>
-              <motion.div
-                key={currentProject}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.5 }}
-              >
-                <img src={projectList[currentProject].background} alt="Project Background" className='object-cover w-full h-full rounded-lg' />
-                <img src={projectList[currentProject].logo} alt="Project Logo" className='absolute top-0 right-0 m-2 rounded-full w-12 h-12 bg-[#274060] cyan-shadow' />
-                <a href={projectList[currentProject].link} target='_blank' className='absolute top-0 left-0 m-2 rounded-full w-12 h-12'>
-                  <img src={projectList[currentProject].linkIcon} alt="Link Icon" className='w-full h-full' />
-                </a>
-                <div className='absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#000000bb] to-transparent p-4 rounded-b-lg'>
-                  <p className='text-white'>{projectList[currentProject].description}</p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-          <button onClick={handleNext} className="z-10 ml-5">Next</button>
-        </motion.div>
-      </div>
+      </AnimatePresence>
+    </div>
+    <button onClick={handleNext} className="z-10 mt-5 md:mt-0 md:ml-5">Next</button>
+  </motion.div>
+</div>
+
     </>
   );
 };

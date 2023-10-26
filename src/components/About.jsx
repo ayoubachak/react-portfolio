@@ -89,7 +89,7 @@ const Image = () => {
   }, []);
 
   return (
-    <div ref={cardRef} className="flex-none ml-10 bg-[#274060] p-4 rounded-[16px] neon-shadow">
+    <div ref={cardRef} className="flex-none ml-10 bg-[#274060] p-4 rounded-[16px] neon-shadow mt-10 ">
       <img src={me} alt="Ayoub Achak" className="w-64 h-64 object-cover" />
     </div>
   );
@@ -111,6 +111,12 @@ const About = () => {
     "R",
     "Bash",
   ];
+  const [fadeIn, setFadeIn] = useState(false);
+
+  useEffect(() => {
+    setFadeIn(true);
+  }, []);
+
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -118,17 +124,15 @@ const About = () => {
         <h2 className={styles.sectionHeadText}>Overview.</h2>
       </motion.div>
       <div className="flex flex-wrap items-start">
-          <motion.p
-            variants={fadeIn("", "", 0.1, 1)}
-            className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
-          >
+        <p className={`mt-4 text-secondary text-[17px] max-w-3xl leading-[30px] ${fadeIn ? 'fade-in show' : 'fade-in'}`}>
+
             Sharing was the key for me to learn So much in the tech field. Helping People Helped
             Me practice My knowledge.<br className='sm:block hidden' />
             I'm a Software Engineering student with a specialized focus on Computer Science and 
             Artificial Intelligence. <br className='sm:block hidden' />
             My technical skills are diverse, covering multiple programming languages 
             like {programming_langs.map((lang) => <span className="font-bold text-white">{lang} <span className="w-2 h-2 bg-blue-200 rounded-full inline-block"></span> </span>)}  as well as a range of web technologies and machine learning tools.
-          </motion.p>
+          </p>
           <Image/>
       </div>
 
