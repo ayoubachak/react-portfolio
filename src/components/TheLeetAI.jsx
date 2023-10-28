@@ -45,8 +45,9 @@ const TheLeetAI = () => {
   so make sure to give a start on follow and give a star ⭐ on [github](https://www.github.com/The-Leet-AI)
 
   You can also follow my Social Medial on the following links:
-  ![side-by-side](${github_icon}) ![side-by-side](${instagram_icon}) ![side-by-side](${linkedin_icon})
   `;
+  // ![side-by-side](${github_icon}) ![side-by-side](${instagram_icon}) ![side-by-side](${linkedin_icon}) `;
+
   const components = {
     // Custom component for paragraphs
     p: ({ node, children }) => {
@@ -132,6 +133,24 @@ const TheLeetAI = () => {
     setCurrentImage((prev) => (prev - 1 + imageList.length) % imageList.length);
   };
 
+  const links = [
+    {
+      alt : 'github',
+      link: 'https://www.github.com/The-Leet-AI',
+      icon : github_icon
+    },
+    {
+      alt : 'instagram',
+      link: 'https://www.instagram.com/the.leet.ai/',
+      icon : instagram_icon
+    },
+    {
+      alt : 'linkedin',
+      link: 'https://www.linkedin.com/company/the-leet-ai/',
+      icon : linkedin_icon
+    },
+  ];
+
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -147,6 +166,12 @@ const TheLeetAI = () => {
   <motion.div className='flex-1'>
     <div className='bg-[#1D1836] p-8 rounded-[16px]'>
       <ReactMarkdown components={components}>{text}</ReactMarkdown>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }}>
+        {links.map(link => <a href={link.link} target="_blank" rel="noopener noreferrer">
+          <img src={link.icon} alt={link.alt} style={{ width: '50px', height: '50px', marginRight: '10px' }} />
+        </a>
+        )}
+      </div>
     </div>
   </motion.div>
   <motion.div className='flex-1 flex flex-col items-center'>

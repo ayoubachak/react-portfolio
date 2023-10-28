@@ -26,6 +26,23 @@ const projectList = [
     linkIcon: linkedin_icon, 
     link:"https://www.linkedin.com/company/extraconnect/" ,
     description: 'Extra Connect', 
+    links : [ 
+      {
+        alt : 'github',
+        link: 'https://www.github.com/ExtraConnect',
+        icon : github_icon
+      },
+      {
+        alt : 'instagram',
+        link: 'https://www.instagram.com/extra.connect/',
+        icon : instagram_icon
+      },
+      {
+        alt : 'linkedin',
+        link: 'https://www.linkedin.com/company/extraconnect/',
+        icon : linkedin_icon
+      },
+    ]
 
   },
   { 
@@ -35,7 +52,8 @@ const projectList = [
     linkIcon: linkedin_icon,
     link:"https://www.linkedin.com/company/proxy-net-official/" ,
     description: 'Proxynet',
-    markdownText: `Your Markdown text for Proxynet here...`
+    links : [ 
+    ]
   },
 ];
 
@@ -59,7 +77,6 @@ const ExtraConnect = () => {
        desc+="\n* **Potholes Manager** : Device that will detect the potholes and geo-locate them for road maintainance data."
        desc+="\n* **Quick Health Care** : Solution for Ensurence companies, the device will collect the data like a black box."
        desc+="\n\nYou can also follow our Social Medial on the following links:"
-       desc+=`\n![side-by-side](${github_icon}) ![side-by-side](${instagram_icon}) ![side-by-side](${linkedin_icon})`;
       
       return desc;
     }
@@ -180,6 +197,12 @@ const ExtraConnect = () => {
   <motion.div className='flex-1'>
     <div className='bg-[#1D1836] p-8 rounded-[16px]'>
       <ReactMarkdown components={components}>{text}</ReactMarkdown>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }}>
+        {projectList[currentProject].links.map(link => <a href={link.link} target="_blank" rel="noopener noreferrer">
+          <img src={link.icon} alt={link.alt} style={{ width: '50px', height: '50px', marginRight: '10px' }} />
+        </a>
+        )}
+      </div>
     </div>
   </motion.div>
   <motion.div className='flex-1 flex flex-col items-center'>
