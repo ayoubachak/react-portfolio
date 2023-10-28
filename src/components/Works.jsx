@@ -129,6 +129,7 @@ const Works = () => {
   );
 
   const loadMoreProjects = () => {
+    console.log("Load More clicked");
     setVisibleProjects((prevCount) => prevCount + numberOfVisibleProjects); // Load numberOfVisibleProjects more projects
   };
   const showLessProjects = () => {
@@ -216,12 +217,12 @@ const Works = () => {
       </div>
 
       {visibleProjects < filteredProjects.length && (
-        <button onClick={loadMoreProjects} className="load-more-button mt-6">
+        <button onClick={loadMoreProjects} className="load-more-button mt-6 z-999">
           Load More
         </button>
       )}
       {visibleProjects > numberOfVisibleProjects && (
-        <button onClick={showLessProjects} className="show-less-button ml-6 mt-6">
+        <button onClick={showLessProjects} className="show-less-button ml-6 mt-6 z-999">
           Show Less
         </button>
       )}
