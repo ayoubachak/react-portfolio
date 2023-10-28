@@ -75,6 +75,19 @@ import extraconnect_proj from './company/extraconnect-proj.jpeg'
 import proxynet from './company/proxy-net.png'
 import proxynet_icon from './company/proxynet-icon.png'
 
+import water_rocket_simulator from './projects/water_rocket_simulator.png';
+import web_snake_game from './projects/web_snake_game.png';
+import reactfood from './projects/reactfood.png';
+import leafdoctor from './projects/leafdoctor.jpeg';
+import minho from './projects/minho.png';
+import firebuster from './projects/firebuster.jpeg';
+import silentstorm from './projects/silentstorm.jpeg';
+import handilizer from './projects/handilizer.png';
+import linefollower from './projects/linefollower.jpeg';
+
+
+import lock from './projects/lock.png';
+
 export {
   logo,
   backend,
@@ -83,6 +96,7 @@ export {
   web,
   github,
   menu,
+  lock,
   close,
   css,
   docker,
@@ -143,4 +157,16 @@ export {
   extraconnect_proj,
   proxynet,
   proxynet_icon,
+
+  // project pics export 
+  water_rocket_simulator,
+  web_snake_game,
+  reactfood,
+  leafdoctor,
+  minho,
+  firebuster,
+  silentstorm,
+  handilizer,
+  linefollower,
+
 };

@@ -3,10 +3,12 @@ import Tilt from "react-tilt";
 import { motion , AnimatePresence} from "framer-motion";
 
 import { styles } from "../styles";
-import { github } from "../assets";
+import { github, lock } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import ReactMarkdown from 'react-markdown';
+
 
 const ProjectCard = ({
   index,
@@ -15,7 +17,31 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
+  closed_source,
 }) => {
+
+  const components = {
+    // Custom component for paragraphs
+    p: ({ node, children }) => {
+      return <p className="mt-2 text-secondary text-[14px]">{children}</p>;
+    },
+    a: ({ node, children, ...props }) => {
+      return (
+        <a {...props} style={{ textDecoration: 'underline', fontWeight: 'bold' }}>
+          {children}
+        </a>
+      );
+    },
+    li: ({ node, children, ...props }) => {
+      return (
+        <li {...props} style={{ listStyleType:'circle' }}>
+          {children}
+        </li>
+      );
+    },
+
+  };
+
   return (
     <motion.div
     key={index}
@@ -40,22 +66,34 @@ const ProjectCard = ({
           />
 
           <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
-            <div
-              onClick={() => window.open(source_code_link, "_blank")}
-              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
-            >
-              <img
-                src={github}
-                alt='source code'
-                className='w-1/2 h-1/2 object-contain'
-              />
-            </div>
+            {!closed_source ? 
+              <div
+                onClick={() => window.open(source_code_link, "_blank")}
+                className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+              >
+                <img
+                  src={github}
+                  alt='source code'
+                  className='w-1/2 h-1/2 object-contain'
+                />
+              </div>  : 
+              <div
+                onClick={() => alert("The code for this repo is either private or contains private information")}
+                className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+              >
+                <img
+                  src={lock}
+                  alt='source code'
+                  className='w-1/2 h-1/2 object-contain'
+                />
+              </div>
+            }
           </div>
         </div>
 
         <div className='mt-5'>
           <h3 className='text-white font-bold text-[24px]'>{name}</h3>
-          <p className='mt-2 text-secondary text-[14px]'>{description}</p>
+          <ReactMarkdown components={components}>{description}</ReactMarkdown>
         </div>
 
         <div className='mt-4 flex flex-wrap gap-2'>
@@ -75,6 +113,8 @@ const ProjectCard = ({
 
 const Works = () => {
   const [selectedTags, setSelectedTags] = useState([]);
+  const numberOfVisibleProjects = 3;
+  const [visibleProjects, setVisibleProjects] = useState(numberOfVisibleProjects);
 
   const toggleTag = (tag) => {
     setSelectedTags((prevTags) =>
@@ -88,6 +128,14 @@ const Works = () => {
     selectedTags.every((tag) => project.tags.some((t) => t.name === tag))
   );
 
+  const loadMoreProjects = () => {
+    setVisibleProjects((prevCount) => prevCount + numberOfVisibleProjects); // Load numberOfVisibleProjects more projects
+  };
+  const showLessProjects = () => {
+    setVisibleProjects((prevCount) => Math.max(numberOfVisibleProjects, prevCount - numberOfVisibleProjects)); // Show numberOfVisibleProjects fewer projects, but not less than numberOfVisibleProjects
+  };
+
+
   const filters = [
     "python",
     "java",
@@ -96,6 +144,7 @@ const Works = () => {
     "C",
     "C++",
     "C#",
+    "javascript",
     "react",
     "angular",
     "typescript",
@@ -116,6 +165,7 @@ const Works = () => {
     "mongodb",
     "raspberry-pi",
     "arduino",
+    "esp32",
     "stm32",
     "lpcxpresso",
   ];
@@ -131,9 +181,11 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
         >
-          Following projects showcases my skills and experience through
-          real-world examples of my work. Each project is briefly described with
-          links to code repositories in it. Have a quick overview of my work.
+          The Following projects showcase my skills and experience through
+          real-world examples. Each project is briefly described with
+          links to code repositories in it. Have a quick overview of some of my work.<br/>
+          Lots of the projects are <b>team projects</b> and are the projects I enjoyed the most.
+          I tried to mention every person I've worked with.
         </motion.p>
       </div>
       <div className='w-full flex'>
@@ -157,11 +209,27 @@ const Works = () => {
       
       <div className='mt-20 flex flex-wrap gap-7'>
         <AnimatePresence>
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.slice(0, visibleProjects).map((project, index) => (
             <ProjectCard key={`project-${index}`} index={index} {...project} />
           ))}
         </AnimatePresence>
       </div>
+
+      {visibleProjects < filteredProjects.length && (
+        <button onClick={loadMoreProjects} className="load-more-button mt-6">
+          Load More
+        </button>
+      )}
+      {visibleProjects > numberOfVisibleProjects && (
+        <button onClick={showLessProjects} className="show-less-button ml-6 mt-6">
+          Show Less
+        </button>
+      )}
+      {filteredProjects.length === 0 && (
+        <div className="no-projects">
+          No Projects To Show now
+        </div>
+      )}
     </>
   );
 };
