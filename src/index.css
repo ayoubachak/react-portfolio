@@ -219,7 +219,7 @@
 }
 
 .download-button {
-  z-index: 999;
+  z-index: 10;
   position: relative;
   margin-top: 20px;
   padding: 10px 20px;
@@ -235,7 +235,7 @@
 }
 
 .social-media-icon {
-  z-index: 999;
+  z-index: 10;
   position: relative;
   margin-top: 20px;
   margin-left: 10px; /* Add some space between the button and the icon */
