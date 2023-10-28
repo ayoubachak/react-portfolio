@@ -112,26 +112,6 @@ const services = [
 
 const technologies = [
   {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
-  {
     name: "java",
     icon: java,
   },
@@ -144,24 +124,12 @@ const technologies = [
     icon: c,
   },
   {
-    name: "cpp",
-    icon: cpp,
-  },
-  {
     name: "cs",
     icon: cs,
   },
   {
-    name: "sql",
-    icon: sql,
-  },
-  {
     name: "php",
     icon: php,
-  },
-  {
-    name: "rust",
-    icon: rust,
   },
 ];
 

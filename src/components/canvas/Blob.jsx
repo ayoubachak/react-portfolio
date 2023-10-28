@@ -90,7 +90,7 @@ const Blob = ({ position, scale, geometryArgs }) => {
 const BlobCanvas = () => {
     const blobs = useMemo(() => {
       const temp = [];
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 1; i++) {
         const x = MathUtils.randFloat(-30, 30);  // Generate only positive x
         const y = MathUtils.randFloat(-20,0);
         const z = MathUtils.randFloat(0,30);
