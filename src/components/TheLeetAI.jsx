@@ -98,17 +98,22 @@ const TheLeetAI = () => {
     },
   };
 
-  useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      setText((prevText) => prevText + fullText[index]);
-      index++;
-      if (index >= fullText.length-1) {
-        clearInterval(timer);
-      }
-    }, 10); // Speed of typing
+  // useEffect(() => {
+  //   let index = 0;
+  //   const timer = setInterval(() => {
+  //     setText((prevText) => prevText + fullText[index]);
+  //     index++;
+  //     if (index >= fullText.length-1) {
+  //       clearInterval(timer);
+  //     }
+  //   }, 10); // Speed of typing
 
-    return () => clearInterval(timer);
+  //   return () => clearInterval(timer);
+  // }, []);
+
+  // Instant rendering
+  useEffect(() => {
+    setText(fullText);
   }, []);
 
   useEffect(() => {

@@ -128,24 +128,24 @@ const ExtraConnect = () => {
 
   };
 
-  useEffect(() => {
-    let index = 0;
-    const currentMarkdownText = getMarkdownText(projectList[currentProject]);
-    const timer = setInterval(() => {
-      setText((prevText) => prevText + currentMarkdownText[index]);
-      index++;
-      if (index >= currentMarkdownText.length - 1) {
-        clearInterval(timer);
-      }
-    }, 10); // Speed of typing
+  // useEffect(() => {
+  //   let index = 0;
+  //   const currentMarkdownText = getMarkdownText(projectList[currentProject]);
+  //   const timer = setInterval(() => {
+  //     setText((prevText) => prevText + currentMarkdownText[index]);
+  //     index++;
+  //     if (index >= currentMarkdownText.length - 1) {
+  //       clearInterval(timer);
+  //     }
+  //   }, 10); // Speed of typing
 
-    return () => clearInterval(timer);
-  }, [currentProject]);
+  //   return () => clearInterval(timer);
+  // }, [currentProject]);
 
   // Instant Rendering
-  // useEffect(() => {
-  //   setText(getMarkdownText(projectList[currentProject]));
-  // }, [currentProject]);
+  useEffect(() => {
+    setText(getMarkdownText(projectList[currentProject]));
+  }, [currentProject]);
 
   // AUtoScroll 
   // useEffect(() => {
