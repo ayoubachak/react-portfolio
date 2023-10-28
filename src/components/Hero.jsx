@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { styles } from "../styles";
 import { ComputersCanvas, BlobCanvas} from "./canvas";
-import {github_icon, linkedin_icon, gmail_icon } from '../assets';
-
+import {github_icon, linkedin_icon, gmail_icon , resumePdf} from '../assets';
 
 const Hero = () => {
 
@@ -33,7 +32,7 @@ const Hero = () => {
             And Machine Learning Geek
           </p>
           <div className="button-icon-wrapper">
-            <a href="./assets/docs/Ayoub Achak Resume.pdf" download className="download-button">
+            <a href={resumePdf} download className="download-button">
               Download My Resume
             </a>
             <a href="https://www.github.com/ayoubachak" className="social-media-icon">

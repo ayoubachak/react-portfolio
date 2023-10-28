@@ -1,3 +1,5 @@
+import resumePdf from './docs/Ayoub Achak Resume.pdf';
+
 import logo from "./logo.svg";
 import backend from "./backend.png";
 import creator from "./creator.png";
@@ -89,6 +91,7 @@ import linefollower from './projects/linefollower.jpeg';
 import lock from './projects/lock.png';
 
 export {
+  resumePdf,
   logo,
   backend,
   creator,
