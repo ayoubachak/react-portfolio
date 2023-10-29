@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { styles } from "../styles";
-import { ComputersCanvas, BlobCanvas} from "./canvas";
+import { ComputersCanvas, BlobCanvas, UIGokuCanvas} from "./canvas";
 import {github_icon, linkedin_icon, gmail_icon , resumePdf} from '../assets';
 
 
@@ -47,7 +47,8 @@ const Hero = () => {
         </div>
       </div>
 
-      <ComputersCanvas />
+      {/* <ComputersCanvas /> */}
+      <UIGokuCanvas />
       {/* <BlobCanvas/> */}
       <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
         <a href='#about'>
