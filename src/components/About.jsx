@@ -80,8 +80,8 @@ const Image = () => {
       const deltaX = mouseX - centerX;
       const deltaY = mouseY - centerY;
 
-      const angleX = (deltaY / height) * 10;  // 10 is the max angle
-      const angleY = -(deltaX / width) * 10;
+      const angleX = (deltaY / height) * 7;  // 7 is the max angle
+      const angleY = -(deltaX / width) * 7;
 
       cardRef.current.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
     };
