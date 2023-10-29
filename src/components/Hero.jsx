@@ -22,8 +22,9 @@ const Hero = () => {
           <div className='w-5 h-5 rounded-full bg-[#274060]' />
           <div className='w-1 sm:h-80 h-40 blue-gradient' />
         </div>
+        {true && 
 
-        <div>
+        <div className="z-10">
           <h1 className={`${styles.heroHeadText} text-white ${typingDone ? 'blink-caret' : 'typing-effect'}`}>
           Hi, I'm <span className='text-[#274060]'>Ayoub</span>
           </h1>
@@ -43,6 +44,7 @@ const Hero = () => {
             </a>
           </div>
         </div>
+        }
       </div>
 
       {/* <ComputersCanvas /> */}

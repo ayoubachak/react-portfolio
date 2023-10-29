@@ -5,7 +5,7 @@ import vertexShader from "./vertexShader";
 import fragmentShader from "./fragmentShader";
 import { useDrag } from 'react-use-gesture';
 import { useThree } from '@react-three/fiber';
-
+import { Vector3 } from 'three';
 
 const Blob = ({ position, scale, geometryArgs }) => {
   const mesh = useRef();
@@ -34,7 +34,7 @@ const Blob = ({ position, scale, geometryArgs }) => {
   const { camera, gl } = useThree();
 
   const bind = useDrag(({ movement: [x, y] }) => {
-    const vec = new THREE.Vector3(
+    const vec = new Vector3(
       (x / gl.domElement.clientWidth) * 2 - 1,
       -(y / gl.domElement.clientHeight) * 2 + 1,
       0
@@ -90,9 +90,9 @@ const Blob = ({ position, scale, geometryArgs }) => {
 const BlobCanvas = () => {
     const blobs = useMemo(() => {
       const temp = [];
-      for (let i = 0; i < 1; i++) {
+      for (let i = 0; i < 20; i++) {
         const x = MathUtils.randFloat(-30, 30);  // Generate only positive x
-        const y = MathUtils.randFloat(-20,0);
+        const y = MathUtils.randFloat(-20,20);
         const z = MathUtils.randFloat(0,30);
         const scale = MathUtils.randFloat(1, 2);
         const geometryArgs = [MathUtils.randFloat(1, 3), 20];

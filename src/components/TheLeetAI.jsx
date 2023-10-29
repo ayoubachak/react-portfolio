@@ -167,7 +167,7 @@ const TheLeetAI = () => {
     <div className='bg-[#1D1836] p-8 rounded-[16px]'>
       <ReactMarkdown components={components}>{text}</ReactMarkdown>
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }}>
-        {links.map(link => <a href={link.link} target="_blank" rel="noopener noreferrer">
+        {links.map((link, index) => <a key={index} href={link.link} target="_blank" rel="noopener noreferrer">
           <img src={link.icon} alt={link.alt} style={{ width: '50px', height: '50px', marginRight: '10px' }} />
         </a>
         )}

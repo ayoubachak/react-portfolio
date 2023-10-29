@@ -19,9 +19,14 @@ const ServiceCard = ({ index, title, icon, bacK_tech }) => {
       // rotateY: isFlipped ? 0 : 180,
     });
   };
+  
+  const tiltRef = useRef(null);
 
   return (
-    <Tilt className='xs:w-[180px] w-full'>
+    <Tilt 
+      ref={tiltRef}
+      className='xs:w-[180px] w-full'
+    >
       <motion.div
         variants={fadeIn("right", "spring", index * 0.5, 0.75)} // Assuming fadeIn is defined elsewhere
         className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
@@ -131,7 +136,7 @@ const About = () => {
             I'm a Software Engineering student with a specialized focus on Computer Science and 
             Artificial Intelligence. <br className='sm:block hidden' />
             My technical skills are diverse, covering multiple programming languages 
-            like {programming_langs.map((lang) => <span className="font-bold text-white">{lang} <span className="w-2 h-2 bg-blue-200 rounded-full inline-block"></span> </span>)}  as well as a range of web technologies and machine learning tools.
+            like {programming_langs.map((lang, index) => <span key={index} className="font-bold text-white" >{lang} <span className="w-2 h-2 bg-blue-200 rounded-full inline-block"></span> </span>)}  as well as a range of web technologies and machine learning tools.
           </p>
           <Image/>
       </div>
