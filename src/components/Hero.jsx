@@ -4,8 +4,9 @@ import { styles } from "../styles";
 import { ComputersCanvas, BlobCanvas} from "./canvas";
 import {github_icon, linkedin_icon, gmail_icon , resumePdf} from '../assets';
 
-const Hero = () => {
 
+const Hero = () => {
+  
   const [typingDone, setTypingDone] = useState(false);
 
   useEffect(() => {
@@ -15,6 +16,7 @@ const Hero = () => {
 
   return (
     <section className={`relative w-full h-screen mx-auto`}>
+      
       <div
         className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
       >
@@ -22,7 +24,6 @@ const Hero = () => {
           <div className='w-5 h-5 rounded-full bg-[#274060]' />
           <div className='w-1 sm:h-80 h-40 blue-gradient' />
         </div>
-        {true && 
 
         <div className="z-10">
           <h1 className={`${styles.heroHeadText} text-white ${typingDone ? 'blink-caret' : 'typing-effect'}`}>
@@ -44,10 +45,9 @@ const Hero = () => {
             </a>
           </div>
         </div>
-        }
       </div>
 
-      {/* <ComputersCanvas /> */}
+      <ComputersCanvas />
       {/* <BlobCanvas/> */}
       <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
         <a href='#about'>
